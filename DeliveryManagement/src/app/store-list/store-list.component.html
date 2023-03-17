@@ -1,1 +1,11 @@
 <p>store-list works!</p>
+<table>
+  <tr>
+    <td>id</td>
+    <td>name</td>
+  </tr>
+  <tr *ngFor="let s of store">
+    <td>{{s.id}}</td>
+    <td>{{s.governorate}}</td>
+  </tr>
+</table>
