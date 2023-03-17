@@ -4,5 +4,6 @@
     <h3>Order {{ order.id }}</h3>
     <p>Customer name: {{ order.sum }}</p>
     <p>Total: {{ order.payment}}</p>
+    <button [routerLink]="['addPickup',id,order.id]"></button>
   </li>
 </ul>

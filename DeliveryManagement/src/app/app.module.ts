@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { StoreListComponent } from './store-list/store-list.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { HeaderComponent } from './header/header.component';
+import { AddPickupComponent } from './add-pickup/add-pickup.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoreListComponent,
     OrderListComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddPickupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
