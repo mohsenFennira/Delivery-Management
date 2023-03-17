@@ -1,0 +1,7 @@
+export enum StatusPickupBuyer{
+  PLACED = 'PLACED',
+  SHIPPED = 'SHIPPED',
+  DELIVERED = 'DELIVERED',
+  RETURN = 'RETURN',
+  REFUNDED = 'REFUNDED'
+}
