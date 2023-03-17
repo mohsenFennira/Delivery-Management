@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreListComponent } from './store-list/store-list.component';
 import { OrderListComponent } from './order-list/order-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoreListComponent,
-    OrderListComponent
+    OrderListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -18,6 +20,6 @@ import { OrderListComponent } from './order-list/order-list.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [HeaderComponent]
 })
 export class AppModule { }

@@ -1,1 +1,8 @@
 <p>order-list works!</p>
+<ul>
+  <li *ngFor="let order of order">
+    <h3>Order {{ order.id }}</h3>
+    <p>Customer name: {{ order.sum }}</p>
+    <p>Total: {{ order.payment}}</p>
+  </li>
+</ul>

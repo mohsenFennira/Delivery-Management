@@ -3,9 +3,12 @@
   <tr>
     <td>id</td>
     <td>name</td>
+    <td>Test</td>
   </tr>
   <tr *ngFor="let s of store">
     <td>{{s.id}}</td>
     <td>{{s.governorate}}</td>
+    <td><button [routerLink]="['/store/order',s.id]">APPLY</button></td>
   </tr>
 </table>
+<router-outlet></router-outlet>

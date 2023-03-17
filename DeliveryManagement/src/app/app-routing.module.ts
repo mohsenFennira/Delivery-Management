@@ -5,7 +5,7 @@ import { StoreListComponent } from './store-list/store-list.component';
 
 const routes: Routes = [
   {path:'store',component:StoreListComponent},
-  {path:'order',component:OrderListComponent}
+  {path:'store/order/:id',component:OrderListComponent}
 ];
 
 @NgModule({
