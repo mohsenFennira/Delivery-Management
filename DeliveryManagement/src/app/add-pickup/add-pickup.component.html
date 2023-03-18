@@ -1,14 +1,22 @@
+
 <div class="container">
   <div class="row">
 <form #addform="ngForm" (ngSubmit)="addForm(addform)">
   <div class="form-group">
-    <label for="description">Description:</label>
-    <input type="text" class="form-control" name="gov" id="description" [(ngModel)]="pickup.governorate">
+    <label for="governorate">Governorate:</label>
+    <select class="form-select" id="governorate" name="governorate" [(ngModel)]="selectedGovernorate"(ngModelChange)="updateCities()">
+      <option *ngFor="let gov of governorates" [value]="gov.name">{{ gov.name }}</option>
+
+    </select>
+
   </div>
-  <div class="form-group">
-    <label for="price">Price:</label>
-    <input type="text" class="form-control" name="city" id="price" [(ngModel)]="pickup.city">
+  <div class="form-group" *ngIf="selectedGovernorate">
+    <label for="city">City:</label>
+    <select class="form-select" id="city" name="city" [(ngModel)]="pickup.city">
+      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
   </div>
+
   <br>
   <button type="submit" class="btn btn-primary">Add Product</button>
 </form>
