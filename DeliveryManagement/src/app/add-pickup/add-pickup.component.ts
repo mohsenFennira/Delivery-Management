@@ -4,7 +4,10 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StatusPickupBuyer } from '../Models/Enum/StatusPickupBuyer';
 import { StatusPickupSeller } from '../Models/Enum/StatusPickupSeller';
+import { Order } from '../Models/Order';
 import { Pickup } from '../Models/Pickup';
+import { Shipping } from '../Models/Shipping';
+import { User } from '../Models/User';
 import { PickupService } from '../services/pickup.service';
 
 @Component({
@@ -32,8 +35,9 @@ export class AddPickupComponent {
     dateCreationPickup: new Date('now'),
     sum:0,
     nbRequest:0,
-    deliveryTimeInHoursBuyer:"",
-    deliveryTimeInHoursSeller:"",
+    deliveryTimeInHoursBuyer:"0",
+    deliveryTimeInHoursSeller:"0",
+    secondPhoneNumber:"",
     statusPickupSeller:StatusPickupSeller.PICKED,
     statusPickupBuyer:StatusPickupBuyer.PLACED
   };
@@ -42,15 +46,17 @@ export class AddPickupComponent {
       this.idOrder = params['idOrder'];
       this.idStore = params['id'];
     });
+    this.getOrderById(this.idOrder);
+    this.getShippingByOrder(this.idOrder);
+    this.GetBuyerByOrder(this.idOrder);
   }
-
- /* AddPickup(p:Pickup,idOrder:number,idStore:number){
-       this.pickupService.addPickup(p,idOrder,idStore).subscribe();
-  }*/
-
+  ///Add Pickup and assign to Order And Store
   addForm(_t7: NgForm) {
     this.pickup.governorate=_t7.controls['governorate'].value;
     this.pickup.city=_t7.controls['city'].value;
+    this.pickup.comment=_t7.controls['comment'].value;
+    this.pickup.secondPhoneNumber=_t7.controls['secondphoneNumber'].value;
+    this.pickup.availableDeliver=_t7.controls['availability'].value;
     this.pickupService.addPickup(this.pickup,this.idOrder,this.idStore).subscribe
     (res =>{console.log('Pickup created');this.route.navigateByUrl('/store');})
   };
@@ -76,14 +82,28 @@ export class AddPickupComponent {
   selectedGovernorate: string = '';
   cities: string[] = [];
   updateCities() {
-    const selectedGov = this.governorates.find(gov => gov.name === this.selectedGovernorate);
+    const selectedGov = this.governorates.find(gov => gov.name === this.shipping.governorate);
     if (selectedGov) {
       this.cities = selectedGov.cities;
     } else {
       this.cities = [];
     }
   }
-
+  order!:Order;
+  //Get Order By Id
+ getOrderById(idOrder:number){
+  this.pickupService.GetOrderById(idOrder).subscribe(data=>{this.order=data});
+ }
+ shipping!:Shipping;
+ //Get Shipping By Order
+ getShippingByOrder(idOrder:number){
+  this.pickupService.GetShippingByOrder(idOrder).subscribe(data=>{this.shipping=data});
+ }
+ user!:User;
+ //Get Buyer By Order
+ GetBuyerByOrder(idOrder:number){
+   this.pickupService.GetBuyerByOrder(idOrder).subscribe(data=>{this.user=data});
+ }
 
 
 

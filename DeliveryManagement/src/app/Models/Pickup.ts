@@ -16,6 +16,7 @@ sum!:number;
 nbRequest!:number;
 deliveryTimeInHoursBuyer!:String;
 deliveryTimeInHoursSeller!:String;
+secondPhoneNumber!:String;
 statusPickupSeller!:StatusPickupSeller;
 statusPickupBuyer!:StatusPickupBuyer;
 
