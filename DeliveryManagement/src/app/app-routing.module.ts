@@ -7,7 +7,7 @@ import { StoreListComponent } from './store-list/store-list.component';
 const routes: Routes = [
   {path:'store',component:StoreListComponent},
   {path:'store/order/:id',component:OrderListComponent},
-  {path:'store/order/:id/addPickup/:idStore/:idOrder',component:AddPickupComponent}
+  {path:'store/order/:id/Pickup/:idOrder',component:AddPickupComponent}
 ];
 
 @NgModule({

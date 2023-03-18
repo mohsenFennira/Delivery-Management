@@ -40,7 +40,7 @@ export class AddPickupComponent {
   ngOnInit(){
     this.r.params.subscribe(params => {
       this.idOrder = params['idOrder'];
-      this.idStore = params['idStore'];
+      this.idStore = params['id'];
     });
   }
 
