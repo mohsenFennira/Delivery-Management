@@ -20,6 +20,13 @@ export class PickupService {
   urlGetOrderById="http://localhost:8081/Pickup/GetOrderById?IdOrder=";
   urlGetShippingByOrder="http://localhost:8081/Pickup/GetShippingByOrder?IdOrder=";
   urlGetBuyerByOrder="http://localhost:8081/Pickup/GetBuyerByOrder?IdOrder=";
+  urlRetrievePickupWaitingBySeller="http://localhost:8081/Pickup/retrievePickupBysellerAttent";
+  urlDeletePickup="http://localhost:8081/Pickup/RemovePickup?id=";
+  urlupdatePickup="http://localhost:8081/Pickup/UpdatePickup?idPikup=";
+  urlGetPickupById="http://localhost:8081/Pickup/RetrievePickup?id=";
+  urlGetOrderBiPickupId="http://localhost:8081/Pickup/GetOrderByPickupId?idPickup=";
+  urlGetShippingByPickupId="http://localhost:8081/Pickup/GetShippingByPickupId?idPickup=";
+  urlGetBuyerByPickupId="http://localhost:8081/Pickup/GetBuyerByPickupId?idPickup=";
   getStoreByUser(){
     return this.http.get<Store[]>(this.urlstore);
     }
@@ -38,4 +45,27 @@ export class PickupService {
      GetBuyerByOrder(idOrder:number){
       return this.http.get<User>(this.urlGetBuyerByOrder+`${idOrder}`)
      }
+     GetPickupBySellerWaiting(){
+      return this.http.get<Pickup[]>(this.urlRetrievePickupWaitingBySeller);
+    }
+    DeletePickup(idPickup:number){
+      return this.http.delete<Pickup>(this.urlDeletePickup+`${idPickup}`);
+    }
+    UpdatePickup(p:Pickup,idPickup:number){
+      return this.http.put<Pickup>(this.urlupdatePickup+`${idPickup}`,p);
+    }
+    GetPickupById(idPickup:number){
+       return this.http.get<Pickup>(this.urlGetPickupById+`${idPickup}`);
+    }
+    GetOrderByPickupId(idPickup:number){
+      return this.http.get<Order>(this.urlGetOrderBiPickupId+`${idPickup}`);
+    }
+    GetShippingByPickupId(idPickup:number){
+      return this.http.get<Shipping>(this.urlGetShippingByPickupId+`${idPickup}`);
+    }
+    GetBuyerByPickupId(idPickup:number){
+      return this.http.get<User>(this.urlGetBuyerByPickupId+`${idPickup}`);
+    }
+
+
 }

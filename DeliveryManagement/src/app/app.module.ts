@@ -8,6 +8,11 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { HeaderComponent } from './header/header.component';
 import { AddPickupComponent } from './add-pickup/add-pickup.component';
 import { FormsModule } from '@angular/forms';
+import { PickupListWaitComponent } from './pickup-list-wait/pickup-list-wait.component';
+import { PickupUpdateComponent } from './pickup-update/pickup-update.component';
+import { HeaderAgencyComponent } from './header-agency/header-agency.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DasboardAgencyComponent } from './dasboard-agency/dasboard-agency.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,12 @@ import { FormsModule } from '@angular/forms';
     StoreListComponent,
     OrderListComponent,
     HeaderComponent,
-    AddPickupComponent
+    AddPickupComponent,
+    PickupListWaitComponent,
+    PickupUpdateComponent,
+    HeaderAgencyComponent,
+    DashboardComponent,
+    DasboardAgencyComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +34,6 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [HeaderComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

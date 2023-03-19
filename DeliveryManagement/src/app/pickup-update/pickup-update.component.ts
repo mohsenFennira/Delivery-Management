@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StatusPickupBuyer } from '../Models/Enum/StatusPickupBuyer';
-import { StatusPickupSeller } from '../Models/Enum/StatusPickupSeller';
 import { Order } from '../Models/Order';
 import { Pickup } from '../Models/Pickup';
 import { Shipping } from '../Models/Shipping';
@@ -11,45 +9,20 @@ import { User } from '../Models/User';
 import { PickupService } from '../services/pickup.service';
 
 @Component({
-  selector: 'app-add-pickup',
-  templateUrl: './add-pickup.component.html',
-  styleUrls: ['./add-pickup.component.css']
+  selector: 'app-pickup-update',
+  templateUrl: './pickup-update.component.html',
+  styleUrls: ['./pickup-update.component.css']
 })
-export class AddPickupComponent {
-
+export class PickupUpdateComponent {
   constructor(private pickupService:PickupService,private http:HttpClient,private r:ActivatedRoute,private route:Router){}
-
-  idOrder!:number;
-  idStore!:number;
-
-   pickup: Pickup = {
-    id: 0,
-    availableDeliver: "",
-    orderOfTheSomeSeller: true,
-    comment: "",
-    governorate: "",
-    city: "",
-    codePickup: "",
-    shippingStatus: "",
-    payed: true,
-    dateCreationPickup: new Date('now'),
-    sum:0,
-    nbRequest:0,
-    deliveryTimeInHoursBuyer:"0",
-    deliveryTimeInHoursSeller:"0",
-    secondPhoneNumber:"",
-    statusPickupSeller:StatusPickupSeller.PICKED,
-    statusPickupBuyer:StatusPickupBuyer.PLACED
-  };
   ngOnInit(){
-    this.r.params.subscribe(params => {
-      this.idOrder = params['idOrder'];
-      this.idStore = params['id'];
-    });
-    this.getOrderById(this.idOrder);
-    this.getShippingByOrder(this.idOrder);
-    this.GetBuyerByOrder(this.idOrder);
+    this.idpickup=this.r.snapshot.params['idPickup'];
+    this.GetPickupById(this.idpickup);
+    this.GetOrderByPickupId(this.idpickup);
+    this.GetShippingByPickup(this.idpickup);
+    this.GetBuyerBYPickup(this.idpickup);
   }
+  idpickup!:number;
   ///Add Pickup and assign to Order And Store
   addForm(_t7: NgForm) {
     this.pickup.governorate=_t7.controls['governorate'].value;
@@ -57,10 +30,8 @@ export class AddPickupComponent {
     this.pickup.comment=_t7.controls['comment'].value;
     this.pickup.secondPhoneNumber=_t7.controls['secondphoneNumber'].value;
     this.pickup.availableDeliver=_t7.controls['availability'].value;
-    this.pickupService.addPickup(this.pickup,this.idOrder,this.idStore).subscribe
-    (res =>{console.log('Pickup created');this.route.navigateByUrl('/pickupwt');})
+    this.UpdatePickup(this.pickup,this.idpickup)
   };
-
   governorates = [
     { name: 'Ariana', cities: ['Ariana', 'Raoued', 'Sidi Thabet'] },
     { name: 'Béja', cities: ['Béja', 'Medjez el-Bab', 'Téboursouk', 'Testour'] },
@@ -89,25 +60,23 @@ export class AddPickupComponent {
       this.cities = [];
     }
   }
+  pickup!:Pickup;
   order!:Order;
-  //Get Order By Id
- getOrderById(idOrder:number){
-  this.pickupService.GetOrderById(idOrder).subscribe(data=>{this.order=data});
- }
- shipping!:Shipping;
- //Get Shipping By Order
- getShippingByOrder(idOrder:number){
-  this.pickupService.GetShippingByOrder(idOrder).subscribe(data=>{this.shipping=data});
- }
- user!:User;
- //Get Buyer By Order
- GetBuyerByOrder(idOrder:number){
-   this.pickupService.GetBuyerByOrder(idOrder).subscribe(data=>{this.user=data});
- }
-
-
-
+  user!:User;
+  shipping!:Shipping;
+  UpdatePickup(p:Pickup,idPickup:number){
+    this.pickupService.UpdatePickup(p,idPickup).subscribe(data=>{this.pickup=data});
   }
-
-
-
+  GetPickupById(idPicku:number){
+       this.pickupService.GetPickupById(idPicku).subscribe(res=>{this.pickup=res});
+  }
+  GetOrderByPickupId(idPickup:number){
+    this.pickupService.GetOrderByPickupId(idPickup).subscribe(data=>{this.order=data});
+  }
+  GetBuyerBYPickup(idPickup:number){
+    this.pickupService.GetBuyerByPickupId(idPickup).subscribe(data=>{this.user=data});
+  }
+  GetShippingByPickup(idPickup:number){
+    this.pickupService.GetShippingByPickupId(idPickup).subscribe(data=>{this.shipping=data});
+  }
+}

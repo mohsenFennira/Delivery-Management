@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+<form #addform="ngForm" (ngSubmit)="addForm(addform)">
+
+  <div class="form-group" >
+    <label for="FIRSTName">First Name:</label>
+    <input class="form-control" id="firstName" name="firstName" [(ngModel)]="user.firstName" disabled >
+  </div>
+  <div class="form-group" >
+    <label for="LastName">Last Name:</label>
+    <input class="form-control" id="LastName" name="lastName" [(ngModel)]="user.lastName" disabled >
+  </div>
+  <div class="form-group" >
+    <label for="PhoneNumber">Phone Number:</label>
+    <input class="form-control" id="PhoneNumber" name="PhoneNumber:" [(ngModel)]="user.phoneNumber" disabled >
+  </div>
+  <div class="form-group" >
+    <label for="SecondPhoneNumber">Second Number:</label>
+    <input class="form-control" id="SecondPhoneNumber" name="secondphoneNumber" ngModel  >
+  </div>
+
+  <div class="form-group">
+    <label for="governorate">Governorate:</label>
+    <select class="form-select" id="governorate" name="governorate" [(ngModel)]="selectedGovernorate"  [(ngModel)]="shipping.governorate"(ngModelChange)="updateCities()">
+      <option *ngFor="let gov of governorates" [value]="gov.name">{{ gov.name }}</option>
+    </select>
+  </div>
+
+
+  <div class="form-group" *ngIf="shipping.governorate" >
+    <label for="city">City:</label>
+    <select class="form-select" id="city" name="city" [(ngModel)]="shipping.city">
+      <option>{{ shipping.city }}</option>
+      <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+    </select>
+  </div>
+  <div class="form-group" >
+    <label for="availability">Full address and availability</label>
+    <input class="form-control" id="availability" name="availability" ngModel  >
+  </div>
+
+  <div class="form-group" >
+    <label for="Comment">Comment:</label>
+    <textarea  class="form-control" id="comment" name="comment" ngModel  ></textarea>
+  </div>
+
+
+  <div class="form-group" >
+    <label for="Price">Price Delivery:</label>
+    <input class="form-control" id="Price" name="priceDelivery" [(ngModel)]="order.deliveryPrice" [disabled]="order.deliveryPrice>=0">
+  </div>
+
+
+  <div class="form-group" >
+    <label for="Weight">Pickup Weight:</label>
+    <input class="form-control" id="pw" name="OrderWeight" [(ngModel)]="order.productsWeightKg" disabled>
+  </div>
+
+
+  <div class="form-group" >
+    <label for="Payment">Payment Type:</label>
+    <input class="form-control" id="pt" name="paymentType" [(ngModel)]="order.payment"  disabled>
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary">Add Pickup</button>
+</form>
+</div>
+</div>
