@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pickup creation date</th>
+      <th scope="col">Sum</th>
+      <th scope="col">Governorate</th>
+      <th scope="col">City</th>
+      <th scope="col">Status</th>
+      <th scope="col">Request</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of pickup">
+      <th scope="row">{{p.id}}</th>
+      <td>{{p.dateCreationPickup}}</td>
+      <td>{{p.sum}}</td>
+      <td>{{p.governorate}}</td>
+      <td>{{p.city}}</td>
+      <td>{{p.statusPickupBuyer}}</td>
+      <td><button [routerLink]="['/dashboardAgency/pickupAgency',p.id]">Request</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+<div class="row">
+  <form #addform="ngForm" (ngSubmit)="addForm(addform)" >
+<div class="form-group"  >
+  <label for="city">DeliveryMen:</label>
+  <select class="form-select" id="DeliveryMen" name="DeliveryMen" [(ngModel)]="DeliveryManId">
+    <option *ngFor="let d of deliveryMen" [value]="d.id" >{{ d.firstName }}</option>
+  </select>
+</div>
+  <button type="submit" class="btn btn-primary">Add Request</button>
+</form>
+</div>
+</div>

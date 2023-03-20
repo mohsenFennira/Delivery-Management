@@ -65,7 +65,8 @@ export class PickupUpdateComponent {
   user!:User;
   shipping!:Shipping;
   UpdatePickup(p:Pickup,idPickup:number){
-    this.pickupService.UpdatePickup(p,idPickup).subscribe(data=>{this.pickup=data});
+    this.pickupService.UpdatePickup(p,idPickup).subscribe
+      (res =>{console.log('Pickup updatedd');this.route.navigateByUrl('/pickupwt');});
   }
   GetPickupById(idPicku:number){
        this.pickupService.GetPickupById(idPicku).subscribe(res=>{this.pickup=res});

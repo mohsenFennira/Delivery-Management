@@ -13,7 +13,8 @@ import { User } from '../Models/User';
 export class PickupService {
 
   constructor(private http:HttpClient) { }
-  ///Url Backend
+  //seller
+  ///Url Backend Seller
   urlstore="http://localhost:8081/Pickup/RetrieveStoreOfUser";
   urlorder="http://localhost:8081/Pickup/retrieveOrderByseller?idStore=";
   urlAddProduct="http://localhost:8081/Pickup/AssignPickupByStoreAndOrder?id=";
@@ -66,6 +67,17 @@ export class PickupService {
     GetBuyerByPickupId(idPickup:number){
       return this.http.get<User>(this.urlGetBuyerByPickupId+`${idPickup}`);
     }
+   //end Seller
+
+   //Agency
+
+   //Url
+   urlRetrievePickupBeTAgencyAndStore="http://localhost:8081/Pickup/RetrievePickupsbetweenAgencyBranchAndStoreInTheSomeGovernorat";
 
 
+
+   RetrievePickupBeTAgencyAndStore(){
+    return this.http.get<Pickup[]>(this.urlRetrievePickupBeTAgencyAndStore);
+   }
+   //endAgency
 }

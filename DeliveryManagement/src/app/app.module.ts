@@ -13,6 +13,8 @@ import { PickupUpdateComponent } from './pickup-update/pickup-update.component';
 import { HeaderAgencyComponent } from './header-agency/header-agency.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DasboardAgencyComponent } from './dasboard-agency/dasboard-agency.component';
+import { AgencyListPickupComponent } from './agency-list-pickup/agency-list-pickup.component';
+import { AgencyAddRequestComponent } from './agency-add-request/agency-add-request.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DasboardAgencyComponent } from './dasboard-agency/dasboard-agency.compo
     PickupUpdateComponent,
     HeaderAgencyComponent,
     DashboardComponent,
-    DasboardAgencyComponent
+    DasboardAgencyComponent,
+    AgencyListPickupComponent,
+    AgencyAddRequestComponent
   ],
   imports: [
     BrowserModule,
