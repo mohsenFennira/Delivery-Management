@@ -5,6 +5,7 @@ import { AgencyAddRequestComponent } from './agency-add-request/agency-add-reque
 import { AgencyListPickupComponent } from './agency-list-pickup/agency-list-pickup.component';
 import { DasboardAgencyComponent } from './dasboard-agency/dasboard-agency.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FreelancerListPickupComponent } from './freelancer-list-pickup/freelancer-list-pickup.component';
 import { HeaderAgencyComponent } from './header-agency/header-agency.component';
 import { HeaderComponent } from './header/header.component';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -16,13 +17,14 @@ const routes: Routes = [
   {path:'Dashboard',component:DashboardComponent},
   {path:'Dashboard/store',component:StoreListComponent},
   {path:'Dashboard/store/order/:id',component:OrderListComponent},
-  {path:'store/order/:id/Pickup/:idOrder',component:AddPickupComponent},
+  {path:'Dashboard/store/order/:id/Pickup/:idOrder',component:AddPickupComponent},
   {path:'pickupwt',component:PickupListWaitComponent},
   {path:'pickupwt/update/:idPickup',component:PickupUpdateComponent},
   {path:'headerAgency',component:HeaderAgencyComponent},
   {path:'dashboardAgency',component:DasboardAgencyComponent},
   {path:'dashboardAgency/pickupAgency',component:AgencyListPickupComponent},
-  {path:'dashboardAgency/pickupAgency/:idPickup',component:AgencyAddRequestComponent}
+  {path:'dashboardAgency/pickupAgency/:idPickup',component:AgencyAddRequestComponent},
+  {path:'dashboardAgency/pickupFreelancer',component:FreelancerListPickupComponent}
 
 ];
 

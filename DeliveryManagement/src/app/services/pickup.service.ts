@@ -10,6 +10,7 @@ import { User } from '../Models/User';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PickupService {
 
   constructor(private http:HttpClient) { }
@@ -28,44 +29,57 @@ export class PickupService {
   urlGetOrderBiPickupId="http://localhost:8081/Pickup/GetOrderByPickupId?idPickup=";
   urlGetShippingByPickupId="http://localhost:8081/Pickup/GetShippingByPickupId?idPickup=";
   urlGetBuyerByPickupId="http://localhost:8081/Pickup/GetBuyerByPickupId?idPickup=";
+
   getStoreByUser(){
-    return this.http.get<Store[]>(this.urlstore);
+    const options = { withCredentials: true };
+    return this.http.get<Store[]>(this.urlstore,options);
     }
     getOrderByStore(id:number){
-      return this.http.get<Order[]>(this.urlorder+`${id}`);
+      const options = { withCredentials: true };
+      return this.http.get<Order[]>(this.urlorder+`${id}`,options);
     }
     addPickup(p:Pickup,idOrder:number,idStore:number){
-      return this.http.post<Pickup>(this.urlAddProduct+`${idOrder}`+'&IdSotre='+`${idStore}`,p);
+      const options = { withCredentials: true };
+      return this.http.post<Pickup>(this.urlAddProduct+`${idOrder}`+'&IdSotre='+`${idStore}`,p,options);
     }
     GetOrderById(idOrder:number){
-         return this.http.get<Order>(this.urlGetOrderById+`${idOrder}`);
+      const options = { withCredentials: true };
+         return this.http.get<Order>(this.urlGetOrderById+`${idOrder}`,options);
     }
     GetShippingByOrder(idOrder:number){
-      return this.http.get<Shipping>(this.urlGetShippingByOrder+`${idOrder}`);
+      const options = { withCredentials: true };
+      return this.http.get<Shipping>(this.urlGetShippingByOrder+`${idOrder}`,options);
      }
      GetBuyerByOrder(idOrder:number){
-      return this.http.get<User>(this.urlGetBuyerByOrder+`${idOrder}`)
+      const options = { withCredentials: true };
+      return this.http.get<User>(this.urlGetBuyerByOrder+`${idOrder}`,options)
      }
      GetPickupBySellerWaiting(){
-      return this.http.get<Pickup[]>(this.urlRetrievePickupWaitingBySeller);
+      const options = { withCredentials: true };
+      return this.http.get<Pickup[]>(this.urlRetrievePickupWaitingBySeller,options);
     }
     DeletePickup(idPickup:number){
       return this.http.delete<Pickup>(this.urlDeletePickup+`${idPickup}`);
     }
     UpdatePickup(p:Pickup,idPickup:number){
-      return this.http.put<Pickup>(this.urlupdatePickup+`${idPickup}`,p);
+      const options = { withCredentials: true };
+      return this.http.put<Pickup>(this.urlupdatePickup+`${idPickup}`,p,options);
     }
     GetPickupById(idPickup:number){
-       return this.http.get<Pickup>(this.urlGetPickupById+`${idPickup}`);
+      const options = { withCredentials: true };
+       return this.http.get<Pickup>(this.urlGetPickupById+`${idPickup}`,options);
     }
     GetOrderByPickupId(idPickup:number){
-      return this.http.get<Order>(this.urlGetOrderBiPickupId+`${idPickup}`);
+      const options = { withCredentials: true };
+      return this.http.get<Order>(this.urlGetOrderBiPickupId+`${idPickup}`,options);
     }
     GetShippingByPickupId(idPickup:number){
-      return this.http.get<Shipping>(this.urlGetShippingByPickupId+`${idPickup}`);
+      const options = { withCredentials: true };
+      return this.http.get<Shipping>(this.urlGetShippingByPickupId+`${idPickup}`,options);
     }
     GetBuyerByPickupId(idPickup:number){
-      return this.http.get<User>(this.urlGetBuyerByPickupId+`${idPickup}`);
+      const options = { withCredentials: true };
+      return this.http.get<User>(this.urlGetBuyerByPickupId+`${idPickup}`,options);
     }
    //end Seller
 
@@ -77,7 +91,19 @@ export class PickupService {
 
 
    RetrievePickupBeTAgencyAndStore(){
-    return this.http.get<Pickup[]>(this.urlRetrievePickupBeTAgencyAndStore);
+    const options = { withCredentials: true };
+    return this.http.get<Pickup[]>(this.urlRetrievePickupBeTAgencyAndStore,options);
    }
    //endAgency
+
+
+   //Freelancer
+   //Url
+
+   urlRetrievePickupsFreelancer="http://localhost:8081/Pickup/RetrievePickupsByGovernoratBetweenStoreAndDeliveryMenFreelancer";
+
+   RetrievePickupsFreelancer(){
+    const options = { withCredentials: true };
+    return this.http.get<Pickup[]>(this.urlRetrievePickupsFreelancer,options);
+   }
 }

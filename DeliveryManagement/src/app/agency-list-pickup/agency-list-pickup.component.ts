@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Pickup } from '../Models/Pickup';
 import { PickupService } from '../services/pickup.service';
@@ -8,7 +9,7 @@ import { PickupService } from '../services/pickup.service';
   styleUrls: ['./agency-list-pickup.component.css']
 })
 export class AgencyListPickupComponent {
-  constructor(private pickupService:PickupService){}
+  constructor(private pickupService:PickupService,private http: HttpClient){}
    ngOnInit(){
     this.RetrievePickupBetweenAgencyAndstore();
    }
@@ -17,5 +18,8 @@ export class AgencyListPickupComponent {
   RetrievePickupBetweenAgencyAndstore(){
          this.pickupService.RetrievePickupBeTAgencyAndStore().subscribe(data=>{this.pickup=data})
   }
+
+
+
 
 }

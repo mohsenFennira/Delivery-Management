@@ -13,6 +13,7 @@ export class AgencyService {
 urlretrieveDeliveryMenTOPickup="http://localhost:8081/AgencyDeliveryMan/RetrieveDeliverymenByagencyWhenThegovernorateOfPickupisSomeGovernorateofdeliverymen?idPickup=";
 
   retrieveDeliveryMenTOPickup(idPickup:number){
-     return this.http.get<AgencyDeliveryMan[]>(this.urlretrieveDeliveryMenTOPickup+`${idPickup}`);
+    const options = { withCredentials: true };
+     return this.http.get<AgencyDeliveryMan[]>(this.urlretrieveDeliveryMenTOPickup+`${idPickup}`,options);
   }
 }
