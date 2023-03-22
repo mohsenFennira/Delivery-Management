@@ -47,4 +47,14 @@ export class RequestService {
     return this.http.delete<Request>(this.urlDeleteRequest+`${idRequest}`,options)
    }
 
+
+   //seller
+   urlretrieveRequestBySeller="http://localhost:8081/RequestController/retrieveRequestDeliveryAgencycBySeller";
+
+
+   retrieveRequestBySeller(){
+    const options = { withCredentials: true };
+    return this.http.get<Request[]>(this.urlretrieveRequestBySeller,options);
+   }
+
 }

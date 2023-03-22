@@ -18,6 +18,7 @@ import { AgencyAddRequestComponent } from './agency-add-request/agency-add-reque
 import { FreelancerListPickupComponent } from './freelancer-list-pickup/freelancer-list-pickup.component';
 import { AgencyListRequestComponent } from './agency-list-request/agency-list-request.component';
 import { FreelancerListRequestComponent } from './freelancer-list-request/freelancer-list-request.component';
+import { SellerListRequestComponent } from './seller-list-request/seller-list-request.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { FreelancerListRequestComponent } from './freelancer-list-request/freela
     AgencyAddRequestComponent,
     FreelancerListPickupComponent,
     AgencyListRequestComponent,
-    FreelancerListRequestComponent
+    FreelancerListRequestComponent,
+    SellerListRequestComponent
     ],
   imports: [
     BrowserModule,

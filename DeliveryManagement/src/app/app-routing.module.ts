@@ -13,11 +13,13 @@ import { HeaderComponent } from './header/header.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { PickupListWaitComponent } from './pickup-list-wait/pickup-list-wait.component';
 import { PickupUpdateComponent } from './pickup-update/pickup-update.component';
+import { SellerListRequestComponent } from './seller-list-request/seller-list-request.component';
 import { StoreListComponent } from './store-list/store-list.component';
 
 const routes: Routes = [
   {path:'Dashboard',component:DashboardComponent},
   {path:'Dashboard/store',component:StoreListComponent},
+  {path:'Dashboard/sellerRQ',component:SellerListRequestComponent},
   {path:'Dashboard/store/order/:id',component:OrderListComponent},
   {path:'Dashboard/store/order/:id/Pickup/:idOrder',component:AddPickupComponent},
   {path:'pickupwt',component:PickupListWaitComponent},

@@ -32,7 +32,7 @@ export class AddPickupComponent {
     codePickup: "",
     shippingStatus: "",
     payed: true,
-    dateCreationPickup: new Date('now'),
+    dateCreationPickup: new Date(),
     sum:0,
     nbRequest:0,
     deliveryTimeInHoursBuyer:"0",
