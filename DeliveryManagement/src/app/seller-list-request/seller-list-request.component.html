@@ -1,18 +1,16 @@
-<p>seller-list-request works!</p>
-<div class="container">
-  <div class="row">
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Status</th>
+      <th scope="col">User</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let r of request">
-     <th>{{r.id}}</th>
-     <th>{{r.requestStatus}}</th>
+      <th>{{r.id}}</th>
+      <th>{{r.requestStatus}}</th>
+      <th>{{getUser().email}}</th>
     </tr>
   </tbody>
 </table>
-</div>

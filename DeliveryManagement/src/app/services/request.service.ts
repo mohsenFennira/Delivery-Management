@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pickup } from '../Models/Pickup';
 import { Request } from '../Models/Request';
+import { User } from '../Models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -49,12 +50,15 @@ export class RequestService {
 
 
    //seller
-   urlretrieveRequestBySeller="http://localhost:8081/RequestController/retrieveRequestDeliveryAgencycBySeller";
-
-
+   urlretrieveRequestBySeller="http://localhost:8081/RequestController/retrieveRequestBySeller";
    retrieveRequestBySeller(){
     const options = { withCredentials: true };
     return this.http.get<Request[]>(this.urlretrieveRequestBySeller,options);
+   }
+   urlretrieveDelievryFreelancerofRequest="http://localhost:8081/RequestController/RetrieveFreelancerDeliveryrByRequest?idRequest=";
+   retrieveDelievryFreelancerofRequest(idRequest:number){
+    const options = { withCredentials: true };
+    return this.http.get<User>(this.urlretrieveDelievryFreelancerofRequest+`${idRequest}`,options);
    }
 
 }
