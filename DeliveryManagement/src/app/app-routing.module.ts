@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddPickupComponent } from './add-pickup/add-pickup.component';
 import { AgencyAddRequestComponent } from './agency-add-request/agency-add-request.component';
 import { AgencyListPickupComponent } from './agency-list-pickup/agency-list-pickup.component';
+import { AgencyListRequestComponent } from './agency-list-request/agency-list-request.component';
 import { DasboardAgencyComponent } from './dasboard-agency/dasboard-agency.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FreelancerListPickupComponent } from './freelancer-list-pickup/freelancer-list-pickup.component';
+import { FreelancerListRequestComponent } from './freelancer-list-request/freelancer-list-request.component';
 import { HeaderAgencyComponent } from './header-agency/header-agency.component';
 import { HeaderComponent } from './header/header.component';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path:'dashboardAgency',component:DasboardAgencyComponent},
   {path:'dashboardAgency/pickupAgency',component:AgencyListPickupComponent},
   {path:'dashboardAgency/pickupAgency/:idPickup',component:AgencyAddRequestComponent},
-  {path:'dashboardAgency/pickupFreelancer',component:FreelancerListPickupComponent}
+  {path:'dashboardAgency/pickupFreelancer',component:FreelancerListPickupComponent},
+  {path:'dashboardAgency/AgencyRequest',component:AgencyListRequestComponent},
+  {path:'dashboardAgency/FreelancerRequest',component:FreelancerListRequestComponent}
 
 ];
 

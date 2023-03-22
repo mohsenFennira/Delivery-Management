@@ -32,7 +32,7 @@ ngOnInit(){
 addForm(_t77:NgForm){
   const selectedDeliveryManId = this.DeliveryManId;
   this.request.requestStatus=RequestStatus.PENDING;
-  this.requestService.AssignRequestDeliveryManToPickup(this.request,selectedDeliveryManId,this.idPickup).subscribe(res =>{console.log('Request created');this.r.navigateByUrl('/pickupwt');});
+  this.requestService.AssignRequestDeliveryManToPickup(this.request,selectedDeliveryManId,this.idPickup).subscribe(res =>{console.log('Request created');this.r.navigateByUrl('/dashboardAgency/AgencyRequest');});
 }
 idPickup!:number;
 deliveryMen!:AgencyDeliveryMan[];

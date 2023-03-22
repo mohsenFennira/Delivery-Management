@@ -27,7 +27,7 @@ export class FreelancerListPickupComponent {
     this.pickupService.RetrievePickupsFreelancer().subscribe(data=>{this.pickup=data});
   }
   AddRequestFreelancer(r:Request,idPickup:number){
-    this.requestService.AssignRequestToFreelancer(this.request,idPickup).subscribe(res =>{console.log('Request created');this.r.navigateByUrl('/pickupwt');});
+    this.requestService.AssignRequestToFreelancer(this.request,idPickup).subscribe(res =>{console.log('Request created');this.r.navigateByUrl('/dashboardAgency/FreelancerRequest');});
   }
 
 }
