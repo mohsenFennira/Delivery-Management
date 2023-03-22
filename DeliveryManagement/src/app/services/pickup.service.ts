@@ -59,7 +59,8 @@ export class PickupService {
       return this.http.get<Pickup[]>(this.urlRetrievePickupWaitingBySeller,options);
     }
     DeletePickup(idPickup:number){
-      return this.http.delete<Pickup>(this.urlDeletePickup+`${idPickup}`);
+      const options = { withCredentials: true };
+      return this.http.delete<Pickup>(this.urlDeletePickup+`${idPickup}`,options);
     }
     UpdatePickup(p:Pickup,idPickup:number){
       const options = { withCredentials: true };

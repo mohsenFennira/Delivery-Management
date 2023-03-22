@@ -9,6 +9,7 @@
       <th scope="col">Governorate</th>
       <th scope="col">City</th>
       <th scope="col">Status</th>
+      <th scope="col">Request</th>
 
 
     </tr>
@@ -21,6 +22,7 @@
       <td>{{p.governorate}}</td>
       <td>{{p.city}}</td>
       <td>{{p.statusPickupBuyer}}</td>
+      <td><button (click)="AddRequestFreelancer(request,p.id)">Request</button></td>
 
     </tr>
   </tbody>

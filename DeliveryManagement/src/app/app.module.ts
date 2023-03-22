@@ -16,7 +16,6 @@ import { DasboardAgencyComponent } from './dasboard-agency/dasboard-agency.compo
 import { AgencyListPickupComponent } from './agency-list-pickup/agency-list-pickup.component';
 import { AgencyAddRequestComponent } from './agency-add-request/agency-add-request.component';
 import { FreelancerListPickupComponent } from './freelancer-list-pickup/freelancer-list-pickup.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,7 @@ import { FreelancerListPickupComponent } from './freelancer-list-pickup/freelanc
     AgencyListPickupComponent,
     AgencyAddRequestComponent,
     FreelancerListPickupComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
